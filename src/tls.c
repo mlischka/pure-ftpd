@@ -48,10 +48,11 @@ static int tls_create_new_context(const char *cert_file,
 
 static int ssl_servername_cb(SSL *cnx, int *al, void *arg)
 {
-    logfile(LOG_INFO, "ssl_servername_cb");
     CertResult  result;
     const char *sni_name;
 
+    sni_name = SSL_get_servername(cnx, TLSEXT_NAMETYPE_host_name);
+    logfile(LOG_INFO, "ssl_servername_cb: sni_name=%s", sni_name);
     (void) al;
     (void) arg;
     if ((sni_name = SSL_get_servername(cnx, TLSEXT_NAMETYPE_host_name))
