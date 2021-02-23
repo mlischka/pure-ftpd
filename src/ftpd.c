@@ -5744,7 +5744,6 @@ int pureftpd_start(int argc, char *argv[], const char *home_directory_)
         }
         case '3':
             tls_extcert_parse(optarg);
-            die(421, LOG_ERR, optarg);
             use_extcert++;
             break;
         case 'Y': {
@@ -6186,6 +6185,7 @@ int pureftpd_start(int argc, char *argv[], const char *home_directory_)
     }
 #endif
 #ifdef WITH_TLS
+    logfile(LOG_INFO, "enforce_tls_auth=%i", enforce_tls_auth);
     if (enforce_tls_auth > 0) {
         (void) tls_init_library();
     }
