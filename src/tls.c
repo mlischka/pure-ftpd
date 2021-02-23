@@ -48,6 +48,7 @@ static int tls_create_new_context(const char *cert_file,
 
 static int ssl_servername_cb(SSL *cnx, int *al, void *arg)
 {
+    logfile(LOG_INFO, "ssl_servername_cb");
     CertResult  result;
     const char *sni_name;
 
@@ -333,6 +334,8 @@ static void tls_init_options(void)
         }
     }
     SSL_CTX_set_info_callback(tls_ctx, ssl_info_cb);
+    
+    logfile(LOG_INFO, "tls_init_options: passes=%i", passes);
     if (passes == 0) {
         SSL_CTX_set_tlsext_servername_callback(tls_ctx, ssl_servername_cb);
         passes++;
