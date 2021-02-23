@@ -309,23 +309,23 @@ static void tls_init_options(void)
     static int passes;
 
 # ifdef SSL_OP_CIPHER_SERVER_PREFERENCE
-    logfile(LOG_INFO, "SSL_OP_CIPHER_SERVER_PREFERENCE=%s", SSL_OP_CIPHER_SERVER_PREFERENCE);
+    logfile(LOG_INFO, "SSL_OP_CIPHER_SERVER_PREFERENCE=%u", SSL_OP_CIPHER_SERVER_PREFERENCE);
     SSL_CTX_set_options(tls_ctx, SSL_OP_CIPHER_SERVER_PREFERENCE);
 # endif
 # ifdef SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION
-    logfile(LOG_INFO, "SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION=%s", SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION);
+    logfile(LOG_INFO, "SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION=%u", SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION);
     SSL_CTX_set_options(tls_ctx, SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION);
 # endif
-    logfile(LOG_INFO, "SSL_OP_NO_SSLv2=%i", SSL_OP_NO_SSLv2);
+    logfile(LOG_INFO, "SSL_OP_NO_SSLv2=%u", SSL_OP_NO_SSLv2);
     SSL_CTX_set_options(tls_ctx, SSL_OP_NO_SSLv2);
-    logfile(LOG_INFO, "SSL_OP_NO_SSLv3=%i", SSL_OP_NO_SSLv3);
+    logfile(LOG_INFO, "SSL_OP_NO_SSLv3=%u", SSL_OP_NO_SSLv3);
     SSL_CTX_set_options(tls_ctx, SSL_OP_NO_SSLv3);
 # ifdef SSL_OP_NO_TLSv1
-    logfile(LOG_INFO, "SSL_OP_NO_TLSv1");
+    logfile(LOG_INFO, "SSL_OP_NO_TLSv1=%u", SSL_OP_NO_TLSv1);
     SSL_CTX_set_options(tls_ctx, SSL_OP_NO_TLSv1);
 # endif
 # ifdef SSL_OP_NO_TLSv1_1
-    logfile(LOG_INFO, "SSL_OP_NO_TLSv1_1");
+    logfile(LOG_INFO, "SSL_OP_NO_TLSv1_1=%u", SSL_OP_NO_TLSv1_1);
     SSL_CTX_set_options(tls_ctx, SSL_OP_NO_TLSv1_1);
 # endif
 # ifdef SSL_OP_NO_TLSv1_2
