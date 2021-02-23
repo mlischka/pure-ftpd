@@ -20,11 +20,13 @@ void tls_extcert_parse(const char * const file)
 {
     size_t file_len;
 
+    logfile(LOG_INFO, "tls_extcert_parse: file=%s", file);
     if (file == NULL || (file_len = strlen(file)) <= (size_t) 0U) {
         return;
     }
     if ((saddr = malloc(sizeof(*saddr) + file_len +
                         (size_t) 1U)) == NULL) {
+        logfile(LOG_INFO, "tls_extcert_parse: die_mem()");
         die_mem();
     }
     memcpy(saddr->sun_path, file, file_len + (size_t) 1U);
@@ -96,6 +98,8 @@ void tls_extcert_get(CertResult * const result, const char *sni_name)
 
     result->cert_ok = 0;
 
+    logfile(LOG_INFO, "tls_extcert_get: sni_name=%s", sni_name);
+    
     tryagain:
     if ((kindy = socket(AF_UNIX, SOCK_STREAM, 0)) == -1) {
         goto bye;
