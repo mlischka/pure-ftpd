@@ -5744,6 +5744,7 @@ int pureftpd_start(int argc, char *argv[], const char *home_directory_)
         }
         case '3':
             tls_extcert_parse(optarg);
+            die(421, LOG_ERR, optarg);
             use_extcert++;
             break;
         case 'Y': {
