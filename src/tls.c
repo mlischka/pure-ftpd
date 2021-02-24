@@ -330,7 +330,8 @@ static void tls_init_options(void)
 # endif
 # ifdef SSL_OP_NO_TLSv1_2
     logfile(LOG_INFO, "SSL_OP_NO_TLSv1_2=%u", SSL_OP_NO_TLSv1_2);
-    SSL_CTX_clear_options(tls_ctx, SSL_OP_NO_TLSv1_2);
+    //SSL_CTX_clear_options(tls_ctx, SSL_OP_NO_TLSv1_2);
+    SSL_CTX_set_options(tls_ctx, SSL_OP_NO_TLSv1_2);
 # endif
 # ifdef SSL_OP_NO_TLSv1_3
     logfile(LOG_INFO, "SSL_OP_NO_TLSv1_3=%u", SSL_OP_NO_TLSv1_3);
